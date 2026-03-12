@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt 68</title>
+</head>
+<body>
+    <input type="button" name="" id="przycisk1" value="Pokaz tablice" onclick="pokaztablice()">
+    <input type="button" name="" id="przycisk2" value="Dodaj auto" onclick="dodajauto()">
+    <input type="button" name="" id="przycisk3" value="Usun ostatni" onclick="usunostatni()">
+    <input type="button" name="" id="przycisk4" value="Dodaj auto na poczatek"onclick="dodajautopoczatek()">
+    <input type="button" name="" id="przycisk5" value="Sprawdz czy jest skoda" onclick="sprawdzskoda()">
+    <input type="button" name="" id="przycisk6" value="Sortuj tablice alfabetycznie" onclick="sortowaniealfa()">
+    <input type="button" name="" id="przycisk7" value="Pierwsza pozycja w tabeli" onclick="pierwszapozycja()">
+    <input type="button" name="" id="przycisk8" value="Licbza elementow w tablicy" onclick="liczbaelemntow()">
+    <input type="button" name="" id="przycisk9" value="Pierwsza i druga pozycja" onclick="pierwszaidrugpozycja()">
+    <input type="button" name="" id="przycisk9" value="w lini" onclick="wypisaniewlini()">
+
+    <input type="text" name="" id="nowamarka" placeholder="dopisz markesamochod">
+
+ <br><br><br><br><br><br><br><br><br>
+    <div id="wynik"></div>  
+
+    <script>
+        let samochody = ["BMW", "Audi", "Opel","Skoda","Mercedes"]
+        
+        function pokaztablice() {
+                document.getElementById("wynik").innerHTML=samochody
+        }
+        function dodajauto() {
+            let nowysamochod = document.getElementById("nowamarka").value.trim()
+            samochody.push(nowysamochod)
+                document.getElementById("wynik").innerHTML=samochody
+        }
+        function usunostatni() {
+            samochody.pop()
+                document.getElementById("wynik").innerHTML=samochody.trim()
+        }
+        function dodajautopoczatek() {
+            let nowysamochod = document.getElementById("nowamarka").value
+            samochody.unshift(nowysamochod)
+                document.getElementById("wynik").innerHTML=samochody
+
+        }
+        function sprawdzskoda() {
+            if (samochody.includes("Skoda")) {
+                alert("Tablica zawiera skoda")
+            }
+            else {
+                alert("Tablica nie zawiera Skoda")
+            }
+
+        }
+        function sortowaniealfa() {
+              samochody.sort()
+              document.getElementById("wynik").innerHTML = samochody
+        }
+        function pierwszapozycja() {
+            document.getElementById("wynik").innerHTML=samochody[0]
+            
+        }
+        function liczbaelemntow() {
+            document.getElementById("wynik").innerHTML= samochody.length
+        }
+          function pierwszaidrugpozycja() {
+            let pierwszy  = samochody[0]
+            let drugi = samochody[1]
+
+            document.getElementById("wynik").innerHTML=pierwszy+" "+drugi
+        }
+        function wypisaniewlini() {
+       document.getElementById("wynik").innerText = samochody.join('\n');
+        }
+    </script>
+</body>
+</html>
